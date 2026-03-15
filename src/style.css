@@ -3,15 +3,81 @@
   --text-primary: #f1f5f9;
   --text-muted: #8b949e;
   --accent-blue: #497517;
-  --accent-glow: rgba(59, 130, 246, 0.4);
+  --accent-glow: rgba(73, 117, 23, 0.4);
   --border-color: #2a2a2a;
   --card-bg: #111111;
   --pill-bg: #1a1a1a;
+  --nav-bg: rgba(13, 13, 13, 0.85);
 
   --font-mono: 'Fira Code', 'JetBrains Mono', monospace;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 
   --transition: 0.3s ease;
+}
+
+/* ===== LIGHT THEME ===== */
+[data-theme="light"] {
+  --bg-color: #f8fafc;
+  --text-primary: #0f172a;
+  --text-muted: #475569;
+  --accent-blue: #497517;
+  --accent-glow: rgba(73, 117, 23, 0.3);
+  --border-color: #e2e8f0;
+  --card-bg: #ffffff;
+  --pill-bg: #f1f5f9;
+  --nav-bg: rgba(248, 250, 252, 0.9);
+}
+
+/* ===== TOP NAV ===== */
+.topnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  transition: opacity 0.4s ease, transform 0.4s ease, background 0.3s ease;
+}
+
+.topnav.hidden {
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+.topnav.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  padding: 0.45rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: var(--transition);
+}
+
+.nav-btn:hover {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.theme-btn {
+  font-size: 1.1rem;
+  padding: 0.4rem 0.7rem;
+  line-height: 1;
 }
 
 * {
