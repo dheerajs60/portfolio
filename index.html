@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" /> <!-- Or custom icon -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dheeraj Kovoor | Full-Stack Developer</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Background grid -->
+    <div class="bg-grid"></div>
+
+    <main class="container">
+      <!-- HERO SECTION -->
+      <section id="hero" class="fade-up hero-layout">
+        <div class="hero-content">
+          <h1 class="mono-heading">
+            Dheeraj Kovoor<span class="blinking-cursor">_</span>
+          </h1>
+          <h2 class="subtitle accent-text">Full-Stack Developer &middot; AI Builder &middot; National Hackathon Finalist</h2>
+          <p class="hero-desc">I build AI-powered, blockchain-enabled web apps that solve real problems.</p>
+          
+          <div class="cta-container">
+            <a href="#projects" class="cta-btn mono-heading">See My Work &rarr;</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="profile-image-container fade-up" style="animation-delay: 0.3s;">
+            <img src="/profile.png" alt="Dheeraj Kovoor - Profile Picture" class="profile-image" />
+          </div>
+        </div>
+      </section>
+
+      <!-- TECH LOGO MARQUEE -->
+      <div class="marquee-container fade-up" style="animation-delay: 0.2s;">
+        <!-- Row 1: Left to Right -->
+        <div class="marquee">
+          <div class="marquee-track track-left">
+            <span>React</span><span>Node.js</span><span>Python</span><span>JavaScript</span><span>Solidity</span>
+            <span>MongoDB</span><span>PostgreSQL</span><span>Tailwind</span><span>Git</span><span>Docker</span>
+            <!-- Duplicate for infinite scroll loop -->
+            <span>React</span><span>Node.js</span><span>Python</span><span>JavaScript</span><span>Solidity</span>
+            <span>MongoDB</span><span>PostgreSQL</span><span>Tailwind</span><span>Git</span><span>Docker</span>
+          </div>
+        </div>
+        <!-- Row 2: Right to Left -->
+        <div class="marquee mt-1">
+          <div class="marquee-track track-right">
+            <span>Docker</span><span>Git</span><span>Tailwind</span><span>PostgreSQL</span><span>MongoDB</span>
+            <span>Solidity</span><span>JavaScript</span><span>Python</span><span>Node.js</span><span>React</span>
+            <!-- Duplicate for infinite scroll loop -->
+            <span>Docker</span><span>Git</span><span>Tailwind</span><span>PostgreSQL</span><span>MongoDB</span>
+            <span>Solidity</span><span>JavaScript</span><span>Python</span><span>Node.js</span><span>React</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ABOUT SECTION -->
+      <section id="about" class="fade-up">
+        <h2 class="mono-heading section-title">Build. Ship. Impact.</h2>
+        <p class="about-text">
+          CS undergrad at VIT AP (CGPA 8.41) with a passion for building at the intersection of AI, blockchain, and full-stack web. Twice a national hackathon finalist. Former intern at Scaler. Currently learning AWS and deepening my MERN stack expertise.
+        </p>
+      </section>
+
+      <!-- PROJECTS SECTION -->
+      <section id="projects" class="fade-up">
+        <h2 class="mono-heading section-title">Projects</h2>
+        
+        <div class="project-group">
+          <h3 class="mono-heading group-label">AI & Legal Tech</h3>
+          <div class="project-grid">
+            <div class="project-card">
+              <h4>SecureX</h4>
+              <p>AI + blockchain legal doc platform. <br>🏆 National Finalist, Microsoft Office Gurgaon.</p>
+              <div class="tags">
+                <span class="tag">React</span>
+                <span class="tag">Solidity</span>
+                <span class="tag">Node.js</span>
+              </div>
+            </div>
+            
+            <div class="project-card">
+              <h4>LawGPT</h4>
+              <p>120B param model fine-tuned on 500K legal docs. 90% faster contract review.</p>
+              <div class="tags">
+                <span class="tag">React</span>
+                <span class="tag">ML</span>
+                <span class="tag">REST APIs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-group mt-3">
+          <h3 class="mono-heading group-label">Healthcare & Social Impact</h3>
+          <div class="project-grid">
+            <div class="project-card">
+              <h4>Vaidya</h4>
+              <p>GPT-powered symptom analysis and healthcare guidance. <br>🏆 National Finalist.</p>
+              <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JS</span>
+                <span class="tag">Tailwind</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS SECTION -->
+      <section id="skills" class="fade-up">
+        <h2 class="mono-heading section-title">My Stack.</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4 class="mono-heading">Languages</h4>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">C</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4 class="mono-heading">Frameworks</h4>
+            <div class="tags">
+              <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Tailwind</span><span class="tag">Stripe</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4 class="mono-heading">Databases</h4>
+            <div class="tags">
+              <span class="tag">MongoDB</span><span class="tag">PostgreSQL</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4 class="mono-heading">Tools</h4>
+            <div class="tags">
+              <span class="tag">Git</span><span class="tag">Solidity</span><span class="tag">IPFS</span><span class="tag">Adobe Suite</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4 class="mono-heading">Concepts</h4>
+            <div class="tags">
+              <span class="tag">OOPs</span><span class="tag">DSA</span><span class="tag">Low-Code/No-Code</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACHIEVEMENTS SECTION -->
+      <section id="achievements" class="fade-up">
+        <h2 class="mono-heading section-title">Achievements</h2>
+        <div class="achievements-grid">
+          <div class="achievement-card">
+            <h4>🏆 SecureX &mdash; National Finalist</h4>
+            <p>Showcased at Microsoft Office Gurgaon among top national entries.</p>
+          </div>
+          <div class="achievement-card">
+            <h4>🏆 Vaidya &mdash; National Finalist</h4>
+            <p>Recognized nationally for impactful GPT-powered healthcare solution.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section id="contact" class="fade-up">
+        <h2 class="mono-heading section-title">A question? Let's connect.</h2>
+        <div class="contact-wrapper">
+          <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent (Mock)');">
+            <div class="form-group">
+              <label class="mono-heading" for="name">Name</label>
+              <input type="text" id="name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label class="mono-heading" for="email">Email</label>
+              <input type="email" id="email" placeholder="john@example.com" required>
+            </div>
+            <div class="form-group">
+              <label class="mono-heading" for="message">Message</label>
+              <textarea id="message" rows="4" placeholder="Hello Dheeraj..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn mono-heading">Send &rarr;</button>
+          </form>
+          
+          <div class="social-links">
+            <a href="https://github.com/dheerajs60" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://linkedin.com/in/kovoor-dheeraj-bbb632329" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="mailto:kovoor.dheeraj60@gmail.com">Email</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-content container">
+        <p class="copyright">&copy; 2025 Dheeraj Kovoor</p>
+        <div class="footer-links">
+          <a href="https://linkedin.com/in/kovoor-dheeraj-bbb632329" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/dheerajs60" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="mailto:kovoor.dheeraj60@gmail.com">Email</a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
