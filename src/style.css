@@ -2,15 +2,15 @@
   --bg-color: #0d0d0d;
   --text-primary: #f1f5f9;
   --text-muted: #8b949e;
-  --accent-blue: #3B82F6;
+  --accent-blue: #497517;
   --accent-glow: rgba(59, 130, 246, 0.4);
   --border-color: #2a2a2a;
   --card-bg: #111111;
   --pill-bg: #1a1a1a;
-  
+
   --font-mono: 'Fira Code', 'JetBrains Mono', monospace;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  
+
   --transition: 0.3s ease;
 }
 
@@ -34,15 +34,140 @@ body {
   overflow-x: hidden;
 }
 
+/* ===== SPLASH SCREEN ===== */
+#splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.9s ease;
+}
+
+#splash.exit {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splash-inner {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+  animation: splashFadeIn 1.2s ease forwards;
+}
+
+@keyframes splashFadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.splash-tag {
+  font-size: 0.85rem;
+  color: #3B82F6;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  opacity: 0.7;
+}
+
+.splash-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  color: #f1f5f9;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  min-height: 1.2em;
+}
+
+.splash-cursor {
+  color: #3B82F6;
+  animation: blink 0.9s step-end infinite;
+}
+
+.splash-sub {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: #8b949e;
+  letter-spacing: 1.5px;
+  margin-bottom: 3rem;
+}
+
+.splash-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2.2rem;
+  background: transparent;
+  color: #3B82F6;
+  border: 1px solid #3B82F6;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  animation: splashBtnPulse 2.5s ease-in-out infinite;
+}
+
+.splash-btn:hover {
+  background: rgba(59, 130, 246, 0.12);
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.4);
+  transform: scale(1.04);
+}
+
+.btn-arrow {
+  transition: transform 0.3s ease;
+}
+
+.splash-btn:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+@keyframes splashBtnPulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(59, 130, 246, 0.2); }
+  50%       { box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+}
+
+/* Floating particles */
+.splash-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #3B82F6;
+  opacity: 0;
+  animation: floatUp var(--dur, 6s) var(--delay, 0s) linear infinite;
+}
+
+@keyframes floatUp {
+  0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+  10%  { opacity: 0.6; }
+  90%  { opacity: 0.3; }
+  100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+}
+
 /* Subtle background grid */
 .bg-grid {
   position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   z-index: -1;
   background-size: 50px 50px;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
 }
@@ -87,8 +212,15 @@ body {
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 /* HERO SECTION */
@@ -118,7 +250,8 @@ body {
   width: 280px;
   height: 380px;
   border-radius: 20px;
-  padding: 8px; /* For a border effect */
+  padding: 8px;
+  /* For a border effect */
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   box-shadow: 0 0 30px rgba(59, 130, 246, 0.1);
@@ -149,11 +282,13 @@ body {
     text-align: center;
     gap: 2rem;
   }
+
   .hero-content {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
   .profile-image-container {
     width: 240px;
     height: 320px;
@@ -250,13 +385,23 @@ body {
 }
 
 @keyframes scrollLeft {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes scrollRight {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* SECTIONS */
@@ -301,12 +446,16 @@ section {
 }
 
 @media (max-width: 600px) {
-  .project-grid, .achievements-grid {
+
+  .project-grid,
+  .achievements-grid {
     grid-template-columns: 1fr;
   }
 }
 
-.project-card, .achievement-card, .skill-category {
+.project-card,
+.achievement-card,
+.skill-category {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   padding: 1.5rem;
@@ -316,10 +465,14 @@ section {
   overflow: hidden;
 }
 
-.project-card::before, .achievement-card::before {
+.project-card::before,
+.achievement-card::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   border-radius: 8px;
   box-shadow: inset 0 0 0 1px var(--accent-glow);
   opacity: 0;
@@ -327,22 +480,26 @@ section {
   pointer-events: none;
 }
 
-.project-card:hover, .achievement-card:hover {
+.project-card:hover,
+.achievement-card:hover {
   border-color: var(--accent-blue);
   transform: translateY(-2px);
 }
 
-.project-card:hover::before, .achievement-card:hover::before {
+.project-card:hover::before,
+.achievement-card:hover::before {
   opacity: 1;
 }
 
-.project-card h4, .achievement-card h4 {
+.project-card h4,
+.achievement-card h4 {
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
   color: var(--text-primary);
 }
 
-.project-card p, .achievement-card p {
+.project-card p,
+.achievement-card p {
   color: var(--text-muted);
   font-size: 0.95rem;
   margin-bottom: 1.5rem;
@@ -408,7 +565,8 @@ section {
   font-size: 0.9rem;
 }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   background: var(--card-bg);
   border: 1px solid var(--border-color);
@@ -419,7 +577,8 @@ input, textarea {
   transition: var(--transition);
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   outline: none;
   border-color: var(--accent-blue);
   box-shadow: 0 0 10px rgba(59, 130, 246, 0.1);
